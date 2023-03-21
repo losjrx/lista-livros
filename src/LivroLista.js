@@ -4,22 +4,20 @@ import { ControleEditoras } from './ControleEditoras';
 
 function LinhaLivro(props) {
   const [editora, setEditora] = useState("");
-  const [setLivros] = useState([]);
+  const [livros, setLivros] = useState([]);
 
   useEffect(() => {
     setEditora(new ControleEditoras().getNomeEditoras(props.codEditora));
   }, [props.codEditora]);
 
   useEffect(() => {
-    var livros = setLivros(new ControleLivros().obterLivros());
+    setLivros(new ControleLivros().obterLivros());
   }, []);
 
   const handleDelete = () => {
-    console.log("olá");
     const index = livros.findIndex((livro) => livro.codigo === props.codigo);
     if (index !== -1) {
-      console.log("hi");
-      new ControleLivros().excluir(props.codigo);
+      livros = livros.splice(index, 1);
     }
   };
 

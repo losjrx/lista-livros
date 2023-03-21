@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export class Editora {
+class Editora {
 	//codEditora,numérico, e nome, do tipo texto
 	codEditora: number;
 	nome: string;
@@ -10,3 +10,5 @@ export class Editora {
 		this.nome = nome;
 	}
 }
+
+export { Editora };
